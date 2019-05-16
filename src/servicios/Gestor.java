@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class Gestor {
 
-	static String[] IP = {"localhost", "localhost", "localhost"};
+	static String[] IP = {"172.20.1.112", "172.20.1.187", "localhost"};
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -25,16 +25,18 @@ public class Gestor {
 	
 	
 	private static String crearDespliegue() throws IOException {
-		
+		//numero de servidor
 		int j=1;
 		
-		//for(int i=0; i<3; i++) {
+		for(int i=0; i<1; i++) {
 			
 			
 			//http://localhost:8080/Servicio/rest/servicios/crear?p=1&ip1=localhost&ip2=localhost&ip3=localhost
 			
-			//URL url = new URL("http://"+ IP[i] +":8080/Servicio/rest/servicios/crear?p=" + j +"&ip1="+ IP[0] +"&ip2=" + IP[1]+"&ip3=" + IP[2]);
-			URL url = new URL("http://localhost:8080/Servicio/rest/servicios/crear?p=" + j +"&ip1="+ IP[0] +"&ip2=" + IP[1]+"&ip3=" + IP[2]);
+			URL url = new URL("http://"+ IP[i] +":8080/Servicio/rest/servicios/crear?p=" + j +"&ip1="+ IP[0] +"&ip2=" + IP[1]+"&ip3=" + IP[2]);
+			
+			
+			//URL url = new URL("http://localhost:8080/Servicio/rest/servicios/crear?p=" + j +"&ip1="+ IP[0] +"&ip2=" + IP[1]+"&ip3=" + IP[2]);
 
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			try {
@@ -56,7 +58,7 @@ public class Gestor {
 				System.out.println(output);
 			}
 			j=j+2;			
-		//}
+		}
 		return "OK";		
 	}
 
